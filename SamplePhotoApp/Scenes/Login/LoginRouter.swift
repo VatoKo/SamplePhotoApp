@@ -21,7 +21,8 @@ struct LoginRouterImpl: LoginRouter {
     }
     
     func navigateToMainPage() {
-        controller?.navigationController?.pushViewController(MainViewController(), animated: true)
+        let vc = MainViewController(configurator: MainPageConfiguratorImpl())
+        controller?.navigationController?.pushViewController(vc, animated: true)
     }
     
     func navigateToSignUpPage(delegate: SignUpDelegate) {

@@ -8,6 +8,17 @@
 import UIKit
 
 class MainViewController: UIViewController {
+ 
+    var viewModel: MainPageViewModel!
+    
+    init(configurator: MainPageConfigurator) {
+        super.init(nibName: nil, bundle: nil)
+        configurator.configure(self)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
 }
 
@@ -17,6 +28,7 @@ extension MainViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        viewModel.loadImages()
     }
     
 }

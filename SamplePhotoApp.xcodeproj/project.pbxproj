@@ -29,7 +29,14 @@
 		11B6BF7E2B19E9FE00ECA8AD /* MockSignUpGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6BF7D2B19E9FE00ECA8AD /* MockSignUpGateway.swift */; };
 		11B6BF802B19EAAC00ECA8AD /* SignUpUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6BF7F2B19EAAC00ECA8AD /* SignUpUseCase.swift */; };
 		11B6BF822B19FC8300ECA8AD /* MockUserDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6BF812B19FC8300ECA8AD /* MockUserDB.swift */; };
-		11B6BF842B19FFF900ECA8AD /* SignUpRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6BF832B19FFF900ECA8AD /* SignUpRouter.swift */; };
+		11B6BF872B1A0E9200ECA8AD /* ApiImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6BF862B1A0E9200ECA8AD /* ApiImageData.swift */; };
+		11B6BF892B1A0EE900ECA8AD /* ImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6BF882B1A0EE900ECA8AD /* ImageData.swift */; };
+		11B6BF8B2B1A0F3300ECA8AD /* ImagesGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6BF8A2B1A0F3300ECA8AD /* ImagesGateway.swift */; };
+		11B6BF8D2B1A0F6400ECA8AD /* ApiImagesGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6BF8C2B1A0F6400ECA8AD /* ApiImagesGateway.swift */; };
+		11B6BF902B1A0F9C00ECA8AD /* Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6BF8F2B1A0F9C00ECA8AD /* Fetcher.swift */; };
+		11B6BF922B1A152A00ECA8AD /* ImagesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6BF912B1A152A00ECA8AD /* ImagesUseCase.swift */; };
+		11B6BF942B1A157B00ECA8AD /* MainPageConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6BF932B1A157B00ECA8AD /* MainPageConfigurator.swift */; };
+		11B6BF962B1A159E00ECA8AD /* MainPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6BF952B1A159E00ECA8AD /* MainPageViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,7 +64,14 @@
 		11B6BF7D2B19E9FE00ECA8AD /* MockSignUpGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSignUpGateway.swift; sourceTree = "<group>"; };
 		11B6BF7F2B19EAAC00ECA8AD /* SignUpUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUseCase.swift; sourceTree = "<group>"; };
 		11B6BF812B19FC8300ECA8AD /* MockUserDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserDB.swift; sourceTree = "<group>"; };
-		11B6BF832B19FFF900ECA8AD /* SignUpRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRouter.swift; sourceTree = "<group>"; };
+		11B6BF862B1A0E9200ECA8AD /* ApiImageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiImageData.swift; sourceTree = "<group>"; };
+		11B6BF882B1A0EE900ECA8AD /* ImageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageData.swift; sourceTree = "<group>"; };
+		11B6BF8A2B1A0F3300ECA8AD /* ImagesGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesGateway.swift; sourceTree = "<group>"; };
+		11B6BF8C2B1A0F6400ECA8AD /* ApiImagesGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiImagesGateway.swift; sourceTree = "<group>"; };
+		11B6BF8F2B1A0F9C00ECA8AD /* Fetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetcher.swift; sourceTree = "<group>"; };
+		11B6BF912B1A152A00ECA8AD /* ImagesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesUseCase.swift; sourceTree = "<group>"; };
+		11B6BF932B1A157B00ECA8AD /* MainPageConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageConfigurator.swift; sourceTree = "<group>"; };
+		11B6BF952B1A159E00ECA8AD /* MainPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +174,8 @@
 			isa = PBXGroup;
 			children = (
 				11B6BF5C2B19CF6400ECA8AD /* MainViewController.swift */,
+				11B6BF952B1A159E00ECA8AD /* MainPageViewModel.swift */,
+				11B6BF932B1A157B00ECA8AD /* MainPageConfigurator.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -167,6 +183,8 @@
 		11B6BF602B19D3A100ECA8AD /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				11B6BF8E2B1A0F9400ECA8AD /* Network */,
+				11B6BF852B1A0E5700ECA8AD /* ApiModels */,
 				11B6BF7A2B19E98700ECA8AD /* Models */,
 				11B6BF642B19D3D800ECA8AD /* UseCases */,
 				11B6BF632B19D3D300ECA8AD /* Gateways */,
@@ -181,6 +199,7 @@
 				11B6BF652B19D3E700ECA8AD /* API */,
 				11B6BF672B19D40200ECA8AD /* AuthenticationGateway.swift */,
 				11B6BF782B19E94E00ECA8AD /* SignUpGateway.swift */,
+				11B6BF8A2B1A0F3300ECA8AD /* ImagesGateway.swift */,
 			);
 			path = Gateways;
 			sourceTree = "<group>";
@@ -190,6 +209,7 @@
 			children = (
 				11B6BF6B2B19D55100ECA8AD /* AuthenticationUseCase.swift */,
 				11B6BF7F2B19EAAC00ECA8AD /* SignUpUseCase.swift */,
+				11B6BF912B1A152A00ECA8AD /* ImagesUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -197,6 +217,7 @@
 		11B6BF652B19D3E700ECA8AD /* API */ = {
 			isa = PBXGroup;
 			children = (
+				11B6BF8C2B1A0F6400ECA8AD /* ApiImagesGateway.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -216,7 +237,6 @@
 			children = (
 				11B6BF722B19E3C300ECA8AD /* SignUpViewController.swift */,
 				11B6BF742B19E53800ECA8AD /* SignUpViewModel.swift */,
-				11B6BF832B19FFF900ECA8AD /* SignUpRouter.swift */,
 				11B6BF762B19E6AD00ECA8AD /* SignUpConfigurator.swift */,
 			);
 			path = SignUp;
@@ -226,8 +246,25 @@
 			isa = PBXGroup;
 			children = (
 				11B6BF7B2B19E99000ECA8AD /* User.swift */,
+				11B6BF882B1A0EE900ECA8AD /* ImageData.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		11B6BF852B1A0E5700ECA8AD /* ApiModels */ = {
+			isa = PBXGroup;
+			children = (
+				11B6BF862B1A0E9200ECA8AD /* ApiImageData.swift */,
+			);
+			path = ApiModels;
+			sourceTree = "<group>";
+		};
+		11B6BF8E2B1A0F9400ECA8AD /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				11B6BF8F2B1A0F9C00ECA8AD /* Fetcher.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,14 +339,18 @@
 			files = (
 				11B6BF682B19D40200ECA8AD /* AuthenticationGateway.swift in Sources */,
 				116DD51C2B151E51009D4021 /* LoginViewController.swift in Sources */,
+				11B6BF962B1A159E00ECA8AD /* MainPageViewModel.swift in Sources */,
 				11B6BF7E2B19E9FE00ECA8AD /* MockSignUpGateway.swift in Sources */,
+				11B6BF8D2B1A0F6400ECA8AD /* ApiImagesGateway.swift in Sources */,
 				11B6BF772B19E6AD00ECA8AD /* SignUpConfigurator.swift in Sources */,
 				11B6BF702B19DA2100ECA8AD /* LoginRouter.swift in Sources */,
 				11B6BF6E2B19D5D900ECA8AD /* LoginConfigurator.swift in Sources */,
+				11B6BF8B2B1A0F3300ECA8AD /* ImagesGateway.swift in Sources */,
 				116DD5042B151801009D4021 /* AppDelegate.swift in Sources */,
 				11B6BF792B19E94E00ECA8AD /* SignUpGateway.swift in Sources */,
 				11B6BF7C2B19E99000ECA8AD /* User.swift in Sources */,
-				11B6BF842B19FFF900ECA8AD /* SignUpRouter.swift in Sources */,
+				11B6BF902B1A0F9C00ECA8AD /* Fetcher.swift in Sources */,
+				11B6BF872B1A0E9200ECA8AD /* ApiImageData.swift in Sources */,
 				11B6BF802B19EAAC00ECA8AD /* SignUpUseCase.swift in Sources */,
 				11B6BF6C2B19D55100ECA8AD /* AuthenticationUseCase.swift in Sources */,
 				11B6BF752B19E53800ECA8AD /* SignUpViewModel.swift in Sources */,
@@ -318,9 +359,12 @@
 				116DD5202B15235F009D4021 /* StandardInput.swift in Sources */,
 				11B6BF6A2B19D4FB00ECA8AD /* MockAuthenticationGateway.swift in Sources */,
 				116DD5232B1526E9009D4021 /* CGFloatExtensions.swift in Sources */,
+				11B6BF942B1A157B00ECA8AD /* MainPageConfigurator.swift in Sources */,
 				11B6BF732B19E3C300ECA8AD /* SignUpViewController.swift in Sources */,
 				11B6BF822B19FC8300ECA8AD /* MockUserDB.swift in Sources */,
 				11B6BF5F2B19D13E00ECA8AD /* LoginViewModel.swift in Sources */,
+				11B6BF892B1A0EE900ECA8AD /* ImageData.swift in Sources */,
+				11B6BF922B1A152A00ECA8AD /* ImagesUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

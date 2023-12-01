@@ -64,7 +64,6 @@ class SignUpViewController: UIViewController {
     }()
     
     var viewModel: SignUpViewModel!
-    var router: SignUpRouter!
     weak var delegate: SignUpDelegate?
     
     init(configurator: SignUpConfigurator) {

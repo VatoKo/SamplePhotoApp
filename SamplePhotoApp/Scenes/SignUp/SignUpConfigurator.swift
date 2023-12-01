@@ -27,10 +27,7 @@ struct SignUpConfiguratorImpl: SignUpConfigurator {
             signUpUseCase: signUpUseCase
         )
         
-        let signUpRouter: SignUpRouter = SignUpRouterImpl(controller: controller)
-        
         controller.viewModel = signUpViewModel
-        controller.router = signUpRouter
         controller.delegate = delegate
     }
     
