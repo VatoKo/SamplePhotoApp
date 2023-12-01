@@ -24,6 +24,7 @@ class LoginViewController: UIViewController {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
+        stack.spacing = .S
         stack.layoutMargins = .init(top: .S, left: .S, bottom: .S, right: .S)
         stack.isLayoutMarginsRelativeArrangement = true
         stack.layer.cornerRadius = .M
@@ -34,9 +35,7 @@ class LoginViewController: UIViewController {
     private lazy var emailField: StandardInput = {
         let field = StandardInput()
         field.placeholder = "Email"
-        field.textPublisher.sink { value in
-            print("Email: \(value)")
-        }.store(in: &cancellables)
+        field.textPublisher.assign(to: \.email, on: viewModel).store(in: &cancellables)
         return field
     }()
     
@@ -44,18 +43,16 @@ class LoginViewController: UIViewController {
         let field = StandardInput()
         field.placeholder = "Password"
         field.isSecureTextEntry = true
-        field.textPublisher.sink { value in
-            print("Password: \(value)")
-        }.store(in: &cancellables)
+        field.textPublisher.assign(to: \.password, on: viewModel).store(in: &cancellables)
         return field
     }()
     
-    private let loginButton: UIButton = {
+    private lazy var loginButton: UIButton = {
         let button = UIButton(configuration: .filled())
         button.setTitle("Log in", for: .normal)
         button.addAction(
-            UIAction(handler: { _ in
-                print("Did tap login")
+            UIAction(handler: { [unowned self] _ in
+                viewModel.login()
             }),
             for: .touchUpInside
         )
@@ -73,7 +70,19 @@ class LoginViewController: UIViewController {
         )
         return button
     }()
-
+    
+    var viewModel: LoginViewModel!
+    var router: LoginRouter!
+    
+    init(configurator: LoginConfigurator) {
+        super.init(nibName: nil, bundle: nil)
+        configurator.configure(self)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
 }
 
 // MARK: UIViewController Lifecycle
@@ -90,9 +99,11 @@ extension LoginViewController {
 extension LoginViewController {
     
     private func setup() {
+        title = "Log in"
         view.backgroundColor = .systemBackground
         addSubviews()
         setupConstraints()
+        setupBindings()
     }
     
     private func addSubviews() {
@@ -110,6 +121,14 @@ extension LoginViewController {
             contentContainerStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -.M),
             contentContainerStack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: .M)
         ])
+    }
+    
+    private func setupBindings() {
+        viewModel.route.receive(on: DispatchQueue.main).sink { route in
+            switch route {
+            case .main: self.router.navigateMainPage()
+            }
+        }.store(in: &cancellables)
     }
     
 }
