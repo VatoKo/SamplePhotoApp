@@ -59,12 +59,12 @@ class LoginViewController: UIViewController {
         return button
     }()
     
-    private let signUpButton: UIButton = {
+    private lazy var signUpButton: UIButton = {
         let button = UIButton(configuration: .borderedTinted())
         button.setTitle("Sign up", for: .normal)
         button.addAction(
-            UIAction(handler: { _ in
-                print("Did tap sign up")
+            UIAction(handler: { [unowned self] _ in
+                router.navigateToSignUpPage(delegate: self)
             }),
             for: .touchUpInside
         )
@@ -126,9 +126,26 @@ extension LoginViewController {
     private func setupBindings() {
         viewModel.route.receive(on: DispatchQueue.main).sink { route in
             switch route {
-            case .main: self.router.navigateMainPage()
+            case .main: self.router.navigateToMainPage()
             }
         }.store(in: &cancellables)
+        
+        viewModel.status.receive(on: DispatchQueue.main).sink { [weak self] message in
+            let alert = UIAlertController(title: "Log In", message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: .default))
+            self?.present(alert, animated: true)
+        }.store(in: &cancellables)
+    }
+    
+}
+
+extension LoginViewController: SignUpDelegate {
+    
+    func signUp(_ sender: SignUpViewController, didCreate user: User) {
+        sender.dismiss(animated: true)
+        viewModel.email = user.email
+        viewModel.password = user.password
+        router.navigateToMainPage()
     }
     
 }

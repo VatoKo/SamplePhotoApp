@@ -11,7 +11,20 @@ import Combine
 struct MockAuthenticationGateway: AuthenticationGateway {
     
     func authenticate(with email: String, and password: String) -> AnyPublisher<Result<Void, Error>, Never> {
-        return Just(Result.success(())).eraseToAnyPublisher()
+        let db = MockUserDB.shared
+        return Just(
+            db.users.contains(where: { user in user.email == email && user.password == password })
+            ? .success(())
+            : .failure(UserNotFoundError())
+        ).eraseToAnyPublisher()
+    }
+    
+}
+
+extension MockAuthenticationGateway {
+    
+    struct UserNotFoundError: LocalizedError {
+        var errorDescription: String? { "Incorrect email or password" }
     }
     
 }

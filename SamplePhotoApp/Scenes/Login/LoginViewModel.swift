@@ -13,6 +13,7 @@ protocol LoginViewModel: AnyObject {
     var password: String? { get set }
     func login()
     var route: AnyPublisher<LoginRoute, Never> { get }
+    var status: AnyPublisher<String, Never> { get }
 }
 
 enum LoginRoute {
@@ -31,6 +32,9 @@ class LoginViewModelImpl: LoginViewModel {
     private let routePublisher = PassthroughSubject<LoginRoute, Never>()
     var route: AnyPublisher<LoginRoute, Never> { routePublisher.eraseToAnyPublisher() }
     
+    private let statusPublisher = PassthroughSubject<String, Never>()
+    var status: AnyPublisher<String, Never> { statusPublisher.eraseToAnyPublisher() }
+    
     init(authenticationUseCase: AuthenticationUseCase) {
         self.authenticationUseCase = authenticationUseCase
     }
@@ -43,7 +47,7 @@ class LoginViewModelImpl: LoginViewModel {
             case .success():
                 self.routePublisher.send(.main)
             case .failure(let error):
-                print("Login failure", error.localizedDescription)
+                self.statusPublisher.send(error.localizedDescription)
             }
         }.store(in: &cancellables)
     }
