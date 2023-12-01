@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ImageData {
+struct ImageData: Hashable {
     let id: Int64?
     let tags: String?
     let previewURL: String?

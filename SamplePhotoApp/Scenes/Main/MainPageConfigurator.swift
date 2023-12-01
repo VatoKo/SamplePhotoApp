@@ -18,8 +18,10 @@ struct MainPageConfiguratorImpl: MainPageConfigurator {
         let imagesUseCase: ImagesUseCase = ImagesUseCaseImpl(gateway: imagesGateway)
         
         let mainViewModel: MainPageViewModel = MainPageViewModelImpl(imagesUseCase: imagesUseCase)
+        let mainPageRouter: MainPageRouter = MainPageRouterImpl(controller: controller)
         
         controller.viewModel = mainViewModel
+        controller.router = mainPageRouter
     }
     
 }
