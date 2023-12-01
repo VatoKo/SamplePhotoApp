@@ -9,6 +9,7 @@ import Foundation
 
 protocol MainPageRouter {
     func navigateToImageDetails(_ imageData: ImageData)
+    func navigateToLoginPage()
 }
 
 struct MainPageRouterImpl: MainPageRouter {
@@ -21,6 +22,11 @@ struct MainPageRouterImpl: MainPageRouter {
     
     func navigateToImageDetails(_ imageData: ImageData) {
         controller?.navigationController?.pushViewController(ImageDetailsController(), animated: true)
+    }
+    
+    func navigateToLoginPage() {
+        let vc = LoginViewController(configurator: LoginConfiguratorImpl())
+        controller?.navigationController?.setViewControllers([vc], animated: true)
     }
     
 }

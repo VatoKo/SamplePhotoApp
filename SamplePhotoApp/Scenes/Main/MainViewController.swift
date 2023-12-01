@@ -12,6 +12,15 @@ class MainViewController: UIViewController {
      
     private var cancellables = Set<AnyCancellable>()
     
+    private lazy var signOutButton: UIBarButtonItem = {
+        return UIBarButtonItem(
+            image: UIImage(systemName: "rectangle.portrait.and.arrow.right"),
+            style: .plain,
+            target: self,
+            action: #selector(didTapSignOut)
+        )
+    }()
+    
     enum Section {
         case images
     }
@@ -81,6 +90,7 @@ extension MainViewController {
     private func setup() {
         title = "Main"
         view.backgroundColor = .systemBackground
+        navigationItem.rightBarButtonItem = signOutButton
         addSubviews()
         setupConstraints()
         setupBindings()
@@ -121,6 +131,16 @@ extension MainViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let imageData = dataSource.itemIdentifier(for: indexPath) else { return }
         viewModel.didSelectImage(imageData)
+    }
+    
+}
+
+// MARK: Touch Events
+extension MainViewController {
+    
+    @objc
+    private func didTapSignOut() {
+        router.navigateToLoginPage()
     }
     
 }
