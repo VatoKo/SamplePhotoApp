@@ -24,7 +24,10 @@ struct SignUpConfiguratorImpl: SignUpConfigurator {
         let signUpUseCase: SignUpUseCase = SignUpUseCaseImpl(gateway: signUpGateway)
         
         let signUpViewModel: SignUpViewModel = SignUpViewModelImpl(
-            signUpUseCase: signUpUseCase
+            signUpUseCase: signUpUseCase,
+            emailValidator: EmailValidator().eraseToAnyValidator,
+            passwordValidator: PasswordValidator().eraseToAnyValidator,
+            ageValidator: AgeValidator().eraseToAnyValidator
         )
         
         controller.viewModel = signUpViewModel

@@ -134,6 +134,24 @@ extension SignUpViewController {
                 self.present(alert, animated: true)
             }
         }.store(in: &cancellables)
+        
+        viewModel.emailValidity
+            .receive(on: DispatchQueue.main)
+            .map({ $0.errorText })
+            .assign(to: \.emailField.errorText, on: self)
+            .store(in: &cancellables)
+        
+        viewModel.passwordValidity
+            .receive(on: DispatchQueue.main)
+            .map { $0.errorText }
+            .assign(to: \.passwordField.errorText, on: self)
+            .store(in: &cancellables)
+        
+        viewModel.ageValidity
+            .receive(on: DispatchQueue.main)
+            .map { $0.errorText }
+            .assign(to: \.ageField.errorText, on: self)
+            .store(in: &cancellables)
     }
     
 }

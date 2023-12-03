@@ -55,6 +55,7 @@
 		11B6BFDF2B1CBFB900ECA8AD /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6BFDE2B1CBFB900ECA8AD /* Validator.swift */; };
 		11B6BFE12B1CBFD800ECA8AD /* EmailValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6BFE02B1CBFD800ECA8AD /* EmailValidator.swift */; };
 		11B6BFE32B1CC00D00ECA8AD /* PasswordValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6BFE22B1CC00D00ECA8AD /* PasswordValidator.swift */; };
+		11B6BFE52B1CC39200ECA8AD /* AgeValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6BFE42B1CC39200ECA8AD /* AgeValidator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +108,7 @@
 		11B6BFDE2B1CBFB900ECA8AD /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		11B6BFE02B1CBFD800ECA8AD /* EmailValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidator.swift; sourceTree = "<group>"; };
 		11B6BFE22B1CC00D00ECA8AD /* PasswordValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidator.swift; sourceTree = "<group>"; };
+		11B6BFE42B1CC39200ECA8AD /* AgeValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeValidator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -380,6 +382,7 @@
 				11B6BFDE2B1CBFB900ECA8AD /* Validator.swift */,
 				11B6BFE02B1CBFD800ECA8AD /* EmailValidator.swift */,
 				11B6BFE22B1CC00D00ECA8AD /* PasswordValidator.swift */,
+				11B6BFE42B1CC39200ECA8AD /* AgeValidator.swift */,
 			);
 			path = Validators;
 			sourceTree = "<group>";
@@ -486,6 +489,7 @@
 				11B6BF802B19EAAC00ECA8AD /* SignUpUseCase.swift in Sources */,
 				11B6BF6C2B19D55100ECA8AD /* AuthenticationUseCase.swift in Sources */,
 				11B6BF752B19E53800ECA8AD /* SignUpViewModel.swift in Sources */,
+				11B6BFE52B1CC39200ECA8AD /* AgeValidator.swift in Sources */,
 				116DD5062B151801009D4021 /* SceneDelegate.swift in Sources */,
 				11B6BFAF2B1B41F500ECA8AD /* ListConfiguration.swift in Sources */,
 				11B6BF5D2B19CF6400ECA8AD /* MainViewController.swift in Sources */,
