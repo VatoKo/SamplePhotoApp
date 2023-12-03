@@ -13,6 +13,7 @@ class ImageCollectionCell: UICollectionViewCell {
     private let imageView: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .secondarySystemFill
         return view
     }()
     
@@ -90,7 +91,7 @@ extension ImageCollectionCell {
 extension ImageCollectionCell {
     
     func configure(with model: ViewModel) {
-        imageView.sd_setImage(with: model.url, placeholderImage: UIImage(systemName: "star"))
+        imageView.sd_setImage(with: model.url)
         descriptionLabel.text = model.description
     }
     

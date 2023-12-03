@@ -31,6 +31,8 @@ class SignUpViewController: UIViewController {
     private lazy var emailField: StandardInput = {
         let field = StandardInput()
         field.placeholder = "Email"
+        field.keyboardType = .emailAddress
+        field.autocapitalizationType = .none
         field.textPublisher.assign(to: \.email, on: viewModel).store(in: &cancellables)
         return field
     }()

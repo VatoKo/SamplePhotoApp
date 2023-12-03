@@ -45,9 +45,9 @@ class MainViewController: UIViewController {
     }()
     
     private lazy var dataSource: UICollectionViewDiffableDataSource<Section, ImageData> = {
-        UICollectionViewDiffableDataSource<Section, ImageData>(collectionView: self.collectionView) { collectionView, indexPath, imageData in
+        UICollectionViewDiffableDataSource<Section, ImageData>(collectionView: collectionView) { collectionView, indexPath, imageData in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCollectionCell", for: indexPath) as! ImageCollectionCell
-            cell.configure(with: .init(url: URL(string: imageData.previewURL!)!, description: imageData.user!))
+            cell.configure(with: .init(url: imageData.previewURL!, description: imageData.user!))
             return cell
         }
     }()

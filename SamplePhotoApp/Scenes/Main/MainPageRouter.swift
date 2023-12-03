@@ -21,7 +21,8 @@ struct MainPageRouterImpl: MainPageRouter {
     }
     
     func navigateToImageDetails(_ imageData: ImageData) {
-        controller?.navigationController?.pushViewController(ImageDetailsController(), animated: true)
+        let vc = ImageDetailsController(configurator: ImageDetailsConfiguratorImpl(imageData: imageData))
+        controller?.navigationController?.pushViewController(vc, animated: true)
     }
     
     func navigateToLoginPage() {
