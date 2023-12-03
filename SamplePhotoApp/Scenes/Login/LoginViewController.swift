@@ -32,21 +32,21 @@ class LoginViewController: UIViewController {
         return stack
     }()
     
-    private lazy var emailField: StandardInput = {
-        let field = StandardInput()
-        field.placeholder = "Email"
-        field.keyboardType = .emailAddress
-        field.autocapitalizationType = .none
-        field.textPublisher.assign(to: \.email, on: viewModel).store(in: &cancellables)
-        return field
+    private lazy var emailField: InputWithErrorView = {
+        let input = InputWithErrorView()
+        input.textfield.placeholder = "Email"
+        input.textfield.keyboardType = .emailAddress
+        input.textfield.autocapitalizationType = .none
+        input.textfield.textPublisher.assign(to: \.email, on: viewModel).store(in: &cancellables)
+        return input
     }()
     
-    private lazy var passwordField: StandardInput = {
-        let field = StandardInput()
-        field.placeholder = "Password"
-        field.isSecureTextEntry = true
-        field.textPublisher.assign(to: \.password, on: viewModel).store(in: &cancellables)
-        return field
+    private lazy var passwordField: InputWithErrorView = {
+        let input = InputWithErrorView()
+        input.textfield.placeholder = "Password"
+        input.textfield.isSecureTextEntry = true
+        input.textfield.textPublisher.assign(to: \.password, on: viewModel).store(in: &cancellables)
+        return input
     }()
     
     private lazy var loginButton: UIButton = {
@@ -137,6 +137,27 @@ extension LoginViewController {
             alert.addAction(UIAlertAction(title: "Okay", style: .default))
             self?.present(alert, animated: true)
         }.store(in: &cancellables)
+        
+        viewModel.emailValidity.receive(on: DispatchQueue.main).sink { validity in
+            switch validity {
+            case .valid:
+                self.emailField.errorText = nil
+            case .invalid(let error):
+                self.emailField.errorText = error
+            }
+        }.store(in: &cancellables)
+        
+        viewModel.emailValidity
+            .receive(on: DispatchQueue.main)
+            .map({ $0.errorText })
+            .assign(to: \.emailField.errorText, on: self)
+            .store(in: &cancellables)
+        
+        viewModel.passwordValidity
+            .receive(on: DispatchQueue.main)
+            .map { $0.errorText }
+            .assign(to: \.passwordField.errorText, on: self)
+            .store(in: &cancellables)
     }
     
 }

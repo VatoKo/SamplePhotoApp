@@ -18,7 +18,9 @@ struct LoginConfiguratorImpl: LoginConfigurator {
         let authenticationUseCase: AuthenticationUseCase = AuthenticationUseCaseImpl(gateway: authenticationGateway)
         
         let loginViewModel: LoginViewModel = LoginViewModelImpl(
-            authenticationUseCase: authenticationUseCase
+            authenticationUseCase: authenticationUseCase,
+            emailValidator: EmailValidator().eraseToAnyValidator,
+            passwordValidator: PasswordValidator().eraseToAnyValidator
         )
         
         let loginRouter: LoginRouter = LoginRouterImpl(controller: controller)

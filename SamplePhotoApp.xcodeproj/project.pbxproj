@@ -51,6 +51,10 @@
 		11B6BFB62B1CA77700ECA8AD /* SpacerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6BFB52B1CA77700ECA8AD /* SpacerCell.swift */; };
 		11B6BFD82B1CA7C600ECA8AD /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6BFD72B1CA7C600ECA8AD /* ArrayExtensions.swift */; };
 		11B6BFDA2B1CAC2900ECA8AD /* AuthorInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6BFD92B1CAC2900ECA8AD /* AuthorInfoCell.swift */; };
+		11B6BFDC2B1CB57900ECA8AD /* InputWithErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6BFDB2B1CB57900ECA8AD /* InputWithErrorView.swift */; };
+		11B6BFDF2B1CBFB900ECA8AD /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6BFDE2B1CBFB900ECA8AD /* Validator.swift */; };
+		11B6BFE12B1CBFD800ECA8AD /* EmailValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6BFE02B1CBFD800ECA8AD /* EmailValidator.swift */; };
+		11B6BFE32B1CC00D00ECA8AD /* PasswordValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6BFE22B1CC00D00ECA8AD /* PasswordValidator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,6 +103,10 @@
 		11B6BFB52B1CA77700ECA8AD /* SpacerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacerCell.swift; sourceTree = "<group>"; };
 		11B6BFD72B1CA7C600ECA8AD /* ArrayExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
 		11B6BFD92B1CAC2900ECA8AD /* AuthorInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorInfoCell.swift; sourceTree = "<group>"; };
+		11B6BFDB2B1CB57900ECA8AD /* InputWithErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputWithErrorView.swift; sourceTree = "<group>"; };
+		11B6BFDE2B1CBFB900ECA8AD /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		11B6BFE02B1CBFD800ECA8AD /* EmailValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidator.swift; sourceTree = "<group>"; };
+		11B6BFE22B1CC00D00ECA8AD /* PasswordValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				116DD51F2B15235F009D4021 /* StandardInput.swift */,
+				11B6BFDB2B1CB57900ECA8AD /* InputWithErrorView.swift */,
 			);
 			path = Input;
 			sourceTree = "<group>";
@@ -350,6 +359,7 @@
 		11B6BFAB2B1B41C600ECA8AD /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				11B6BFDD2B1CBFAA00ECA8AD /* Validators */,
 				11B6BFAC2B1B41D900ECA8AD /* Reusable.swift */,
 				11B6BFAE2B1B41F500ECA8AD /* ListConfiguration.swift */,
 			);
@@ -362,6 +372,16 @@
 				11B6BFB32B1C9FF900ECA8AD /* TitleDescriptionView.swift */,
 			);
 			path = TitleDescriptionView;
+			sourceTree = "<group>";
+		};
+		11B6BFDD2B1CBFAA00ECA8AD /* Validators */ = {
+			isa = PBXGroup;
+			children = (
+				11B6BFDE2B1CBFB900ECA8AD /* Validator.swift */,
+				11B6BFE02B1CBFD800ECA8AD /* EmailValidator.swift */,
+				11B6BFE22B1CC00D00ECA8AD /* PasswordValidator.swift */,
+			);
+			path = Validators;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -447,8 +467,10 @@
 				11B6BF962B1A159E00ECA8AD /* MainPageViewModel.swift in Sources */,
 				11B6BF7E2B19E9FE00ECA8AD /* MockSignUpGateway.swift in Sources */,
 				11B6BF8D2B1A0F6400ECA8AD /* ApiImagesGateway.swift in Sources */,
+				11B6BFE32B1CC00D00ECA8AD /* PasswordValidator.swift in Sources */,
 				11B6BFB12B1C9DBD00ECA8AD /* ImageDetailsCell.swift in Sources */,
 				11B6BF772B19E6AD00ECA8AD /* SignUpConfigurator.swift in Sources */,
+				11B6BFE12B1CBFD800ECA8AD /* EmailValidator.swift in Sources */,
 				11B6BFDA2B1CAC2900ECA8AD /* AuthorInfoCell.swift in Sources */,
 				11B6BF702B19DA2100ECA8AD /* LoginRouter.swift in Sources */,
 				11B6BF6E2B19D5D900ECA8AD /* LoginConfigurator.swift in Sources */,
@@ -470,6 +492,8 @@
 				11B6BFAA2B1B3E6900ECA8AD /* ImageCell.swift in Sources */,
 				116DD5202B15235F009D4021 /* StandardInput.swift in Sources */,
 				11B6BF6A2B19D4FB00ECA8AD /* MockAuthenticationGateway.swift in Sources */,
+				11B6BFDC2B1CB57900ECA8AD /* InputWithErrorView.swift in Sources */,
+				11B6BFDF2B1CBFB900ECA8AD /* Validator.swift in Sources */,
 				116DD5232B1526E9009D4021 /* CGFloatExtensions.swift in Sources */,
 				11B6BF942B1A157B00ECA8AD /* MainPageConfigurator.swift in Sources */,
 				11B6BFD82B1CA7C600ECA8AD /* ArrayExtensions.swift in Sources */,

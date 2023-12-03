@@ -28,28 +28,28 @@ class SignUpViewController: UIViewController {
         return stack
     }()
     
-    private lazy var emailField: StandardInput = {
-        let field = StandardInput()
-        field.placeholder = "Email"
-        field.keyboardType = .emailAddress
-        field.autocapitalizationType = .none
-        field.textPublisher.assign(to: \.email, on: viewModel).store(in: &cancellables)
-        return field
+    private lazy var emailField: InputWithErrorView = {
+        let input = InputWithErrorView()
+        input.textfield.placeholder = "Email"
+        input.textfield.keyboardType = .emailAddress
+        input.textfield.autocapitalizationType = .none
+        input.textfield.textPublisher.assign(to: \.email, on: viewModel).store(in: &cancellables)
+        return input
     }()
     
-    private lazy var passwordField: StandardInput = {
-        let field = StandardInput()
-        field.placeholder = "Password"
-        field.textPublisher.assign(to: \.password, on: viewModel).store(in: &cancellables)
-        return field
+    private lazy var passwordField: InputWithErrorView = {
+        let input = InputWithErrorView()
+        input.textfield.placeholder = "Password"
+        input.textfield.textPublisher.assign(to: \.password, on: viewModel).store(in: &cancellables)
+        return input
     }()
     
-    private lazy var ageField: StandardInput = {
-        let field = StandardInput()
-        field.placeholder = "Age"
-        field.keyboardType = .numberPad
-        field.textPublisher.map({ Int($0 ?? "") }).assign(to: \.age, on: viewModel).store(in: &cancellables)
-        return field
+    private lazy var ageField: InputWithErrorView = {
+        let input = InputWithErrorView()
+        input.textfield.placeholder = "Age"
+        input.textfield.keyboardType = .numberPad
+        input.textfield.textPublisher.map({ Int($0 ?? "") }).assign(to: \.age, on: viewModel).store(in: &cancellables)
+        return input
     }()
     
     private lazy var signUpButton: UIButton = {
